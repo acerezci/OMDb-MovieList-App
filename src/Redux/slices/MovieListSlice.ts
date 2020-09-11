@@ -6,13 +6,13 @@ type movieListType = {
   totalResults:string;
 }
 
-type SliceStateType = {
+type movieListSliceType = {
   movieListLoading: boolean;
   movieList: movieListType;
   movieListError: boolean;
 };
 
-const INITIAL_STATE: SliceStateType = {
+const INITIAL_STATE: movieListSliceType = {
   movieListLoading: false,
   movieList: {
     Response: 'False',

@@ -25,6 +25,7 @@ const Form = () => {
 
   useEffect(() => {
     dispatch(updateMovieList(searchTerm, year, searchTypeTerm, currentPage));
+    console.log('alperen');
   }, [currentPage]);
 
   const onKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {

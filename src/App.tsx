@@ -1,13 +1,22 @@
 import React from 'react';
-import styled from 'styled-components';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 import Home from 'Containers/Home';
+import MovieDetail from 'Containers/MovieDetail';
+import NotFound from 'Containers/NotFound';
 
 const App = () => (
-  <AppWrapper>
-    <Home />
-  </AppWrapper>
-);
+  <Router>
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/movie-detail/:imdbId" component={MovieDetail} />
+      <Route component={NotFound} />
+    </Switch>
+  </Router>
 
-const AppWrapper = styled.div``;
+);
 
 export default App;

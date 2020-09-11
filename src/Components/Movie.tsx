@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 import Images from 'Assets/Images';
+import { Link } from 'react-router-dom';
 
 type movieType = {
   Title: string;
@@ -16,27 +17,23 @@ interface PropTypes {
 
 const MovieList = ({ movie }: PropTypes) => (
   <MovieContainer>
-    <Image
-      src={movie.Poster === 'N/A' ? Images.placeholder : movie.Poster}
-      alt={movie.Title}
-    />
-    <MovieDetailItem>
-      <Name>
-        Name:
-        {' '}
-        {movie.Title}
-      </Name>
-      <Year>
-        Year:
-        {' '}
-        {movie.Year}
-      </Year>
-      <ImdbID>
-        Imdb ID:
-        {' '}
-        {movie.imdbID}
-      </ImdbID>
-    </MovieDetailItem>
+    <Link to={`/movie-detail/${movie.imdbID}`}>
+      <Image
+        src={movie.Poster === 'N/A' ? Images.placeholder : movie.Poster}
+        alt={movie.Title}
+      />
+      <MovieDetailItem>
+        <Name>
+          {movie.Title !== 'N/A' && `Name: ${movie.Title}`}
+        </Name>
+        <Year>
+          {movie.Year !== 'N/A' && `Year: ${movie.Year}`}
+        </Year>
+        <ImdbID>
+          {movie.imdbID !== 'N/A' && `Imdb ID: ${movie.imdbID}`}
+        </ImdbID>
+      </MovieDetailItem>
+    </Link>
   </MovieContainer>
 );
 
