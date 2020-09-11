@@ -1,24 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { movieDetailsSliceType } from 'Redux/helpers/SliceTypes';
 
-type movieDetailsType = {
-  Actors: string;
-  Title: string;
-  Poster: string;
-  Country: string;
-  Director: string;
-  Released: string;
-  Runtime: string;
-  Year: string;
-  imdbRating: string;
-};
-
-type movideDetailsSliceType = {
-  movieDetailsLoading: boolean;
-  movieDetails: movieDetailsType;
-  movieDetailsError: boolean;
-};
-
-const INITIAL_STATE: movideDetailsSliceType = {
+const INITIAL_STATE: movieDetailsSliceType = {
   movieDetailsLoading: false,
   movieDetails: {
     Actors: '',

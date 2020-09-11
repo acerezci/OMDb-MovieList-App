@@ -1,16 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-type movieListType = {
-  Response: 'True' | 'False';
-  Search:[];
-  totalResults:string;
-}
-
-type movieListSliceType = {
-  movieListLoading: boolean;
-  movieList: movieListType;
-  movieListError: boolean;
-};
+import { movieListSliceType } from 'Redux/helpers/SliceTypes';
 
 const INITIAL_STATE: movieListSliceType = {
   movieListLoading: false,
