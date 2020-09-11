@@ -19,11 +19,15 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
+    '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
     'react/jsx-filename-extension': [
       2,
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
     'no-use-before-define': 'off',
+    'react/destructuring-assignment': 0,
+    'max-len': ['error', { code: 140 }],
+    'no-param-reassign': ['error', { props: true, ignorePropertyModificationsForRegex: ['^state'] }],
     'import/extensions': [
       'error',
       'ignorePackages',

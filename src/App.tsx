@@ -1,11 +1,13 @@
 import React from 'react';
-import './App.scss';
-import Home from 'Containers/Home';
+import Header from 'Components/Header';
+import styled from 'styled-components';
 
 const App = () => (
-  <div className="App">
-    <Home />
-  </div>
+  <AppWrapper>
+    <Header />
+  </AppWrapper>
 );
+
+const AppWrapper = styled.div``;
 
 export default App;
