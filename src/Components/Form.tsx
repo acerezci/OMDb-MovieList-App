@@ -24,8 +24,8 @@ const Form = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(updateMovieList(searchTerm, year, searchTypeTerm, currentPage));
-  }, [currentPage]);
+    dispatch(updateMovieList('Pokemon', '', '', currentPage));
+  }, [currentPage, dispatch]);
 
   const onKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter' && searchTerm) {
@@ -76,11 +76,16 @@ const Form = () => {
 };
 
 const Container = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
   justify-content: center;
+  grid-gap: 24px;
+  @media (max-width: 1500px){
+    grid-template-columns: auto auto;
+  }
+  @media (max-width: 900px){
+    grid-template-columns: auto;
+  }
 `;
 
 const FormItem = styled.div`
@@ -94,6 +99,9 @@ const Label = styled.h3`
   font-size: 23px;
   line-height: 27px;
   margin-right: 21px;
+  @media (max-width: 1500px){
+    width:150px;
+  }
 `;
 
 export default memo(Form);

@@ -13,12 +13,10 @@ import Space from 'Components/Space';
 import Pagination from 'Components/Pagination';
 
 const Home = () => {
-  const perPage = 10;
   const movieList = useSelector(movieListSelector);
   const movieListError = useSelector(movieListErrorSelector);
   const movieListLoading = useSelector(movieListLoadingSelector);
   const { totalResults, Response, Search } = movieList;
-  const numberOfPages = Math.floor(parseInt(totalResults, 10) / perPage);
 
   return (
     <Container>
@@ -38,7 +36,7 @@ const Home = () => {
       <Space value={32} />
       {Response === 'True' && (
         <>
-          <Pagination numberOfPages={numberOfPages} />
+          <Pagination />
           <Space value={21} />
           <MovieListContainer>
             {Search?.map((movie, index) => (
@@ -58,10 +56,19 @@ const Container = styled.div`
 
 const MovieListContainer = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto;
   grid-gap: 24px;
   padding: 8px;
   justify-content: space-around;
+  @media (max-width: 1200px){
+    grid-template-columns: auto auto auto;
+  }
+  @media (max-width: 920px){
+    grid-template-columns: auto auto;
+  }
+  @media (max-width: 625px){
+    grid-template-columns: auto;
+  }
 `;
 
 const Loader = styled.img`

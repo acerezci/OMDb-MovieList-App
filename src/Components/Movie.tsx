@@ -58,6 +58,7 @@ const Image = styled.img`
 
 const MovieDetailItem = styled.div`
   width: 300px;
+  padding:5px;
   justify-content: space-between;
 `;
 
@@ -68,7 +69,7 @@ const Name = styled.div`
 `;
 
 const Year = styled.div`
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   font-weight: bold;
 `;
 
