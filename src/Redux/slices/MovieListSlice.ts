@@ -1,14 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+type movieListType = {
+  Response: 'True' | 'False';
+  Search:[];
+  totalResults:string;
+}
+
 type SliceStateType = {
   movieListLoading: boolean;
-  movieList: [];
+  movieList: movieListType;
   movieListError: boolean;
 };
 
 const INITIAL_STATE: SliceStateType = {
   movieListLoading: false,
-  movieList: [],
+  movieList: {
+    Response: 'False',
+    Search: [],
+    totalResults: '',
+  },
   movieListError: false,
 };
 
@@ -26,7 +36,7 @@ const MovieListSlice = createSlice({
     },
     errorMovieList(state) {
       state.movieListLoading = false;
-      state.movieList = [];
+      state.movieList.Search = [];
       state.movieListError = true;
     },
   },

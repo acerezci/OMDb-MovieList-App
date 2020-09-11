@@ -1,8 +1,11 @@
 import React, { memo } from 'react';
+import Header from 'Components/Header';
+import MovieList from 'Components/MovieList';
 
 const Home = () => (
   <div>
-    <h2>Home</h2>
+    <Header />
+    <MovieList />
   </div>
 );
 

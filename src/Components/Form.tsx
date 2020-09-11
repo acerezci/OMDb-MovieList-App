@@ -8,8 +8,6 @@ import React, {
 import styled from 'styled-components';
 import { updateMovieList } from 'Redux/actions/MovieListAction';
 import { useAppDispatch } from 'Redux/store';
-import { movieListSelector } from 'Redux/selectors/MovieListSelector';
-import { useSelector } from 'react-redux';
 import Input from './Input';
 import SelectBox from './SelectBox';
 import Button from './Button';
@@ -19,8 +17,6 @@ const Form = () => {
   const [searchTypeTerm, setSearchTypeTerm] = useState('');
   const [year, setYear] = useState('');
   const dispatch = useAppDispatch();
-  const movieList = useSelector(movieListSelector);
-  console.log(movieList);
 
   useEffect(() => {
     dispatch(updateMovieList(searchTerm, year, searchTypeTerm));

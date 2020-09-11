@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from 'Components/Header';
 import styled from 'styled-components';
+import Home from 'Containers/Home';
 
 const App = () => (
   <AppWrapper>
-    <Header />
+    <Home />
   </AppWrapper>
 );
 

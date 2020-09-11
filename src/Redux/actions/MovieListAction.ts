@@ -10,7 +10,7 @@ const updateMovieList = (
   dispatch(MovieListActions.changeLoading(true));
   fetch(`${OMDbConfig.ApiUrl}&s=${searchTerm}&type=${searchTypeTerm}&y=${year}`)
     .then((response) => response.json())
-    .then((response) => dispatch(MovieListActions.setMovieList(response.Search)))
+    .then((response) => dispatch(MovieListActions.setMovieList(response)))
     .catch(() => dispatch(MovieListActions.errorMovieList()));
 };
 
