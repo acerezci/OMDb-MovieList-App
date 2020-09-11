@@ -8,29 +8,36 @@ import React, {
 import styled from 'styled-components';
 import { updateMovieList } from 'Redux/actions/MovieListAction';
 import { useAppDispatch } from 'Redux/store';
+import { useSelector } from 'react-redux';
+import currentPageSelector from 'Redux/selectors/CurrentPageSelector';
+import { changeCurrentPage } from 'Redux/slices/CurrentPageSlice';
 import Input from './Input';
 import SelectBox from './SelectBox';
 import Button from './Button';
 
 const Form = () => {
+  const firstPage = 1;
   const [searchTerm, setSearchTerm] = useState('Pokemon');
   const [searchTypeTerm, setSearchTypeTerm] = useState('');
   const [year, setYear] = useState('');
+  const currentPage = useSelector(currentPageSelector);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(updateMovieList(searchTerm, year, searchTypeTerm));
-  }, []);
+    dispatch(updateMovieList(searchTerm, year, searchTypeTerm, currentPage));
+  }, [currentPage]);
 
   const onKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter' && searchTerm) {
-      dispatch(updateMovieList(searchTerm, year, searchTypeTerm));
+      dispatch(changeCurrentPage(firstPage));
+      dispatch(updateMovieList(searchTerm, year, searchTypeTerm, firstPage));
     }
   };
 
   const onPress = () => {
     if (searchTerm) {
-      dispatch(updateMovieList(searchTerm, year, searchTypeTerm));
+      dispatch(changeCurrentPage(firstPage));
+      dispatch(updateMovieList(searchTerm, year, searchTypeTerm, firstPage));
     }
   };
 
